@@ -36,11 +36,14 @@ public class Main {
                 System.out.println(text.substring(0, 100) + " -> " + maxSize);
             };
             Thread thread = new Thread(logic);
+            threads.add(thread);
             thread.start();
         }
+
         for (Thread thread : threads) {
             thread.join();
         }
+
         long endTs = System.currentTimeMillis(); // end time
         System.out.println("Time: " + (endTs - startTs) + "ms");
 
